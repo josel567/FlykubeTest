@@ -9,8 +9,8 @@
   "author": "Jose Luis García Torrecillas",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "unirest": "^0.6.0"
+    "axios": "^0.19.1",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.2",
