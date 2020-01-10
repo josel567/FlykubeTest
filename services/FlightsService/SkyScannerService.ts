@@ -1,5 +1,4 @@
 import IFlightService from './IFlightService';
-//@ts-ignore
 import axios from 'axios';
 
 class SkyScannerService implements IFlightService {
