@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+let Schema = mongoose.Schema;
  
-const PlaceSchema = new mongoose.Schema({
-    id: Number,
-    placeId: String,
+const PlaceSchema = new Schema({
+    _id: { type: mongoose.Schema.Types.ObjectId, auto: true },
+    placeId: { type: String, unique: true},
     placeName: String,
     countryId: String,
     regionId: String,
@@ -10,6 +11,6 @@ const PlaceSchema = new mongoose.Schema({
     countryName: String
 });
  
-const PlaceModel = mongoose.model('Place', PlaceSchema);
+let PlaceModel = mongoose.model('place', PlaceSchema);
  
-export default PlaceModel;
+export {PlaceModel};

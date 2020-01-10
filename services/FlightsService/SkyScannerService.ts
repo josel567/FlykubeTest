@@ -1,5 +1,6 @@
 import IFlightService from './IFlightService';
 import axios from 'axios';
+import { PlaceModel } from '../../models/place';
 
 class SkyScannerService implements IFlightService {
 
@@ -19,9 +20,31 @@ class SkyScannerService implements IFlightService {
                 "query": queryString
             }
         });
-        
-        return response.data;
+
+        return response.data.Places;
     };
+
+    public async savePlaces(places: any): Promise<void> {
+        
+        places.forEach(async (placeObject: any) => {
+            try {
+                let place = new PlaceModel({
+                    placeId: placeObject.placeId,
+                    placeName: placeObject.placeName,
+                    countryId: placeObject.countryId,
+                    regionId: placeObject.regionId,
+                    cityId: placeObject.cityId,
+                    countryName: placeObject.countryName
+                });
+
+                await place.save();
+            } catch (error) {
+                console.log(error);
+            }
+
+        });
+        
+    }
 
 }
 

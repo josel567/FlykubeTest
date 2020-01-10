@@ -8,6 +8,8 @@ class GetPlaces {
 
     async execute(queryString: string) {
         const places = await this.flightService.getPlaces(queryString);
+        await this.flightService.savePlaces(places);
+        console.log("save places done");
 
         return places;
     }

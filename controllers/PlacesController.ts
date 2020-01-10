@@ -13,6 +13,8 @@ class PlacesController {
             
             res.send(places);
         } catch (error) {
+            console.log(error);
+            
             const code = error.code || 400;
             
             res.status(code).json(error);
