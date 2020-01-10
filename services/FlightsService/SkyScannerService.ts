@@ -24,26 +24,43 @@ class SkyScannerService implements IFlightService {
         return response.data.Places;
     };
 
-    public async savePlaces(places: [object]): Promise<void> {
-        
-        places.forEach(async (placeObject: any) => {
-                let place = new PlaceModel({
-                    placeId: placeObject.PlaceId,
-                    placeName: placeObject.PlaceName,
-                    countryId: placeObject.CountryId,
-                    regionId: placeObject.RegionId,
-                    cityId: placeObject.CityId,
-                    countryName: placeObject.CountryName
-                });
+    public async browseQuotes(params: any): Promise<any> {
+        const response = await axios({
+            "method": "GET",
+            "url": `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsequotes/v1.0/ES/EUR/es-ES/${params.originplace}/${params.destinationplace}/${params.outboundpartialdate}`,
+            "headers": {
+                "content-type": "application/octet-stream",
+                "x-rapidapi-host": "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com",
+                "x-rapidapi-key": "1162d90d83mshe2d02e099ad691cp13874cjsndf9f62885655"
+            }, "params": {
+                "inboundpartialdate": params.inboundpartialdate
+            }
+        })
 
-                await place.save();
+        return(response.data);
+
+    }
+
+    public async savePlaces(places: [object]): Promise<void> {
+
+        places.forEach(async (placeObject: any) => {
+            let place = new PlaceModel({
+                placeId: placeObject.PlaceId,
+                placeName: placeObject.PlaceName,
+                countryId: placeObject.CountryId,
+                regionId: placeObject.RegionId,
+                cityId: placeObject.CityId,
+                countryName: placeObject.CountryName
+            });
+
+            await place.save();
         });
-        
+
     }
 
     public async retrievePlaces(): Promise<any> {
         const places = await PlaceModel.find();
-        
+
         return places;
     }
 
