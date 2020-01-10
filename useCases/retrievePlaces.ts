@@ -1,17 +1,16 @@
 import { IFlightService } from "../services/FlightsService";
 
-class GetPlaces {
+class RetrievePlaces {
 
     constructor(private readonly flightService: IFlightService){
         this.execute = this.execute.bind(this);
     }
 
-    async execute(queryString: string) {
-        const places = await this.flightService.getPlaces(queryString);
-        await this.flightService.savePlaces(places);
+    async execute() {
+        const places = await this.flightService.retrievePlaces();
 
         return places;
     }
 }
 
-export default GetPlaces;
+export default RetrievePlaces;

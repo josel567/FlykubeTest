@@ -8,6 +8,7 @@ router.get('/', (request, response) => {
     response.send('Welcome to Flykube test');
 });
 
-router.get('/places/:queryString', placesController.getPlaces)
+router.get('/places/:queryString', placesController.getPlaces);
+router.get('/places', placesController.retrievePlaces);
 
 export default router;

@@ -24,10 +24,9 @@ class SkyScannerService implements IFlightService {
         return response.data.Places;
     };
 
-    public async savePlaces(places: any): Promise<void> {
+    public async savePlaces(places: [object]): Promise<void> {
         
         places.forEach(async (placeObject: any) => {
-            try {
                 let place = new PlaceModel({
                     placeId: placeObject.PlaceId,
                     placeName: placeObject.PlaceName,
@@ -38,12 +37,14 @@ class SkyScannerService implements IFlightService {
                 });
 
                 await place.save();
-            } catch (error) {
-                console.log(error);
-            }
-
         });
         
+    }
+
+    public async retrievePlaces(): Promise<any> {
+        const places = await PlaceModel.find();
+        
+        return places;
     }
 
 }

@@ -12,7 +12,7 @@ app.use(routes);
 
 app.listen(3000, () => {
     console.log('Server listening at port localhost:3000');
-    mongoose.createConnection('mongodb://localhost:27017/flykube', { useNewUrlParser: true, useUnifiedTopology: true });
+    mongoose.connect('mongodb://localhost:27017/flykube', { useNewUrlParser: true, useUnifiedTopology: true });
     mongoose.connection.once('open', () => {
         console.info('Connected to Mongo via Mongoose');
     });
