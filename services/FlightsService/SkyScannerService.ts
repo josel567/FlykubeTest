@@ -29,12 +29,12 @@ class SkyScannerService implements IFlightService {
         places.forEach(async (placeObject: any) => {
             try {
                 let place = new PlaceModel({
-                    placeId: placeObject.placeId,
-                    placeName: placeObject.placeName,
-                    countryId: placeObject.countryId,
-                    regionId: placeObject.regionId,
-                    cityId: placeObject.cityId,
-                    countryName: placeObject.countryName
+                    placeId: placeObject.PlaceId,
+                    placeName: placeObject.PlaceName,
+                    countryId: placeObject.CountryId,
+                    regionId: placeObject.RegionId,
+                    cityId: placeObject.CityId,
+                    countryName: placeObject.CountryName
                 });
 
                 await place.save();
