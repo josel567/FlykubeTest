@@ -1,8 +1,8 @@
 import { IFlightService } from "../services/FlightsService";
 
 class RetrievePlaces {
-
-    constructor(private readonly flightService: IFlightService){
+    // Passing the service through the constructor facilitates decoupling and subsequent updates of the code.
+    constructor(private readonly flightService: IFlightService) {
         this.execute = this.execute.bind(this);
     }
 

@@ -1,13 +1,9 @@
-import IFlightService from './IFlightService';
 import axios from 'axios';
+import IFlightService from './IFlightService';
 import { PlaceModel } from '../../models/place';
 import { QuoteModel } from '../../models/quote';
 
 class SkyScannerService implements IFlightService {
-
-    constructor() {
-
-    }
 
     public async getPlaces(queryString: string): Promise<any> {
         const response = await axios({
@@ -38,7 +34,7 @@ class SkyScannerService implements IFlightService {
             }
         })
 
-        return(response.data);
+        return (response.data);
 
     }
 
@@ -59,7 +55,7 @@ class SkyScannerService implements IFlightService {
 
     }
 
-    public async saveQuotes (quotesObject: any): Promise<void> {
+    public async saveQuotes(quotesObject: any): Promise<void> {
         let quotes = quotesObject.Quotes;
         let places = quotesObject.Places;
 
