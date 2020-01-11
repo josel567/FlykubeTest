@@ -1,6 +1,7 @@
 import IFlightService from './IFlightService';
 import axios from 'axios';
 import { PlaceModel } from '../../models/place';
+import { QuoteModel } from '../../models/quote';
 
 class SkyScannerService implements IFlightService {
 
@@ -54,6 +55,21 @@ class SkyScannerService implements IFlightService {
             });
 
             await place.save();
+        });
+
+    }
+
+    public async saveQuotes (quotesObject: any): Promise<void> {
+        let quotes = quotesObject.Quotes;
+        let places = quotesObject.Places;
+
+        quotes.forEach(async (quoteObject: any) => {
+            let quote = new QuoteModel({
+                MinPrice: quoteObject.MinPrice,
+                Places: places
+            });
+
+            await quote.save();
         });
 
     }

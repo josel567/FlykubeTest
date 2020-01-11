@@ -7,9 +7,9 @@ class BrowseQuotes {
     }
 
     async execute(params: any) {
-        const places = await this.flightService.browseQuotes(params);
-
-        return places;
+        const quotes = await this.flightService.browseQuotes(params);
+        await this.flightService.saveQuotes(quotes);
+        return quotes;
     }
 }
 
