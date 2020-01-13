@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.ts"
+    "start": "nodemon app.ts",
+    "test": "jest --watch"
   },
   "author": "Jose Luis García Torrecillas",
   "license": "ISC",
@@ -18,8 +19,11 @@
   "devDependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.2",
+    "@types/jest": "^24.0.25",
     "@types/mongoose": "^5.5.41",
+    "jest": "^24.9.0",
     "nodemon": "^2.0.2",
+    "ts-jest": "^24.3.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
   }
