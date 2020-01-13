@@ -22,3 +22,5 @@ La API REST cuenta con tan solo tres endpoints:
 	El endpoint devuelve las 'quotes' encontradas y las almacena en la base de datos.
 	
 _Soy consciente de que dentro del servicio 'FlightService' no debería estar la persistencia de datos. La persistencia debería ir en un servicio aparte con su propia interfaz y a su vez nuevos 'UseCase' para desacoplarlo pero no lo he podido hacer por falta de tiempo._
+
+_También quería añadir que la parte de Testing está inacabada, falta testear los otros dos useCase que serían casi iguales que el primero y limpiar la base de datos después de cada test. De nuevo falta de tiempo._
